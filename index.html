@@ -1,17 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 <head>
-  <meta charset="UTF-8">
-  <title>Discord 登入</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清明節的由來</title>
+    <!-- 引入 Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .center-text {
+            text-align: center;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .light-mode .nav-link {
+            color: black;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: white;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .dark-mode .nav-link {
+            color: white;
+        }
+    </style>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4382/4382479.png">
 </head>
 <body>
-  <div class="container">
-    <h1>歡迎登入 Discord</h1>
-    <!--<a href="/login" class="login-btn">登入</a>-->
-    <button class="login-btn" onclick="showAlert()">登入</button>
-  </div>
-  <script type="text/javascript" src="js/login.js"></script>
+    <div class="container mt-5">
+        <h1 class="text-center">清明節的由來</h1>
+        <div class="d-flex justify-content-end">
+            <button id="toggleButton" class="btn btn-primary mb-3">切換深淺模式</button>
+        </div>
+        <ul class="nav nav-tabs mt-3">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#origin1">由來一</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#origin2">由來二</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#origin3">由來三</a>
+            </li>
+        </ul>
+        <div class="center-text">
+            <div class="tab-content">
+                <div id="origin1" class="tab-pane fade show active">
+                    清明節源於中國古代農耕文化，是中國傳統節日之一。</br>
+                    古人認為春分後，陽氣日升，萬物皆清潔明亮，故稱清明。</br>
+                    清明節是中國傳統的祭祖節日，人們會在這一天掃墓祭祖，以示對先人的尊敬。</br>
+                </div>
+                <div id="origin2" class="tab-pane fade">
+                    清明節的由來還與古代的寒食節有關。</br>
+                    寒食節是為了紀念晉文公的忠臣介之推，他在文公流亡期間，曾為文公割肉自食。</br>
+                    後來介之推死後，文公為了紀念他，便定下寒食節，禁火三天，只吃冷食。</br>
+                    後來，寒食節與清明節合二為一，成為現在的清明節。</br>
+                </div>
+                <div id="origin3" class="tab-pane fade">
+                    清明節不僅是祭祖的日子，也是人們春游的好時節。</br>
+                    在清明節這天，人們會出去踏青，欣賞大自然的美景，這也是清明節的一種重要活動。</br>
+                    清明節的由來深深地體現了中國人對生命和自然的尊重。</br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 引入 jQuery 和 Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            if (document.body.classList.contains('light-mode')) {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+            }
+        });
+    </script>
 </body>
 </html>
