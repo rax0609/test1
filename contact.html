@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 - 移動運算時代</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">移動運算時代 - 智慧手機與平板電腦的興起及影響</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="history.html">歷史沿革</a></li>
+                <li><a href="impact.html">社會影響</a></li>
+                <li><a href="tech.html">技術發展</a></li>
+                <li><a href="contact.html">聯絡我們</a></li>
+                <li><a href="team.html">團隊成員</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            <article>
+                <section id="contact">
+                    <h3>聯絡我們</h3>
+                    <p>如果您有任何問題或建議，歡迎通過以下方式聯絡我們：</p>
+                    <form id="contactForm">
+                        <label for="name">姓名：</label>
+                        <input type="text" id="name" name="name" ><br>
+                        <label for="email">電子郵件：</label>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="message">留言：</label>
+                        <textarea id="message" name="message" ></textarea><br>
+                        <button type="submit">提交</button>
+                    </form>
+                </section>
+            </article>
+        </main>
+        <aside>
+            <div class="widget">
+                <h3>文章分類</h3>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="history.html">歷史沿革</a></li>
+                    <li><a href="tech.html">技術發展</a></li>
+                    <li><a href="impact.html">社會影響</a></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h3>最新文章</h3>
+                <ul>
+                    <li><a href="#">最新智慧手機趨勢</a></li>
+                    <li><a href="#">平板電腦的新功能</a></li>
+                    <li><a href="#">移動運算未來展望</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2024 昱數科技. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                // Prevent default form submission
+                event.preventDefault();
+
+                // Collect form data
+                var name = document.getElementById('name').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var message = document.getElementById('message').value.trim();
+
+                // Check if all fields are filled
+                if (name === '' || email === '' || message === '') {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: '欄位未填',
+                        text: '所有欄位均為必填，請完整填寫後再提交。',
+                        confirmButtonText: '知道了'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '提交成功',
+                        text: '感謝您的聯絡，我們會盡快與您聯絡。',
+                        confirmButtonText: '好的'
+                    }).then(function() {
+                        // If user clicks "OK", submit the form
+                        document.getElementById('contactForm').submit();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
