@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>歷史沿革 - 移動運算時代</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -34,6 +35,11 @@
                         <li>2016年 - 智慧手機成為人們日常生活中不可或缺的工具。</li>
                     </ul>
                 </section>
+                <section>
+                    <h2>移動裝置市場增長趨勢</h2>
+                    <p>以下圖表展示了過去十年中智慧手機和平板電腦的市場增長趨勢：</p>
+                    <canvas id="marketGrowthChart" width="400" height="200"></canvas>
+                </section>
             </article>
         </main>
         <aside>
@@ -57,7 +63,50 @@
         </aside>
     </div>
     <footer>
-        <p>&copy; 2024 昱數科技. All rights reserved.</p>
+        <p>&copy; 2024 rxteam. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('marketGrowthChart').getContext('2d');
+            var marketGrowthChart = new Chart(ctx, {
+                type: 'line', // 圖表類型
+                data: {
+                    labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'],
+                    datasets: [{
+                        label: '智慧手機市場增長 (億台)',
+                        data: [27.4, 31.3, 37.8, 40.5, 47.7, 50.6, 55.3, 59.9, 64.5, 68.9],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true
+                    },
+                    {
+                        label: '平板電腦市場增長 (億台)',
+                        data: [14.2, 16.8, 18.7, 20.1, 21.3, 22.5, 23.8, 24.9, 26.0, 27.1],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: '年份'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '市場增長 (億台)'
+                            },
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
