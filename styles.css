@@ -170,6 +170,17 @@ form button:hover {
     margin: 5px 0 0 0;
 }
 
+/* 修改文章分類顏色 */
+.widget ul li a {
+    color: #1e90ff; /* 深藍色 */
+    text-decoration: none;
+}
+
+.widget ul li a:hover {
+    color: #ff4500; /* 當鼠標懸停時變為橙紅色 */
+}
+
+
 /* 響應式設計 */
 @media (max-width: 768px) {
     .container {
@@ -193,5 +204,35 @@ form button:hover {
     .team-info {
         align-items: center;
         text-align: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* 針對平板電腦大小進行調整 */
+    .team-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .team-member img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .team-info {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1025px) {
+    /* 針對桌面大小進行調整 */
+    .team-member {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    .team-info {
+        align-items: flex-start;
+        text-align: left;
     }
 }
