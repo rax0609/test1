@@ -1,25 +1,27 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
-    color: #fff;
+    background-color: #f9f9f9; /* 淺灰色背景 */
+    color: #333; /* 深灰色文字 */
     line-height: 1.6;
 }
 
 header {
-    background: #333;
-    color: #fff;
+    background: #4CAF50; /* 綠色背景 */
+    color: #fff; /* 白色文字 */
     padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加陰影 */
 }
 
 header .logo {
     font-size: 1.5rem;
     margin-left: 1rem;
+    font-weight: bold;
 }
 
 nav ul {
@@ -36,12 +38,22 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #45A049; /* 鼠標懸停時背景變深 */
+    border-radius: 5px;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 main {
@@ -49,9 +61,11 @@ main {
 }
 
 article {
-    padding: 1rem;
-    background-color: #2a2a2a;
-    border-radius: 5px;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加陰影 */
+    margin-bottom: 1.5rem;
 }
 
 aside {
@@ -60,38 +74,11 @@ aside {
 }
 
 .widget {
-    background-color: #2a2a2a;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-#chartContainer {
-    width: 100%;
-    height: 300px;
-    display: none;
-}
-
-button#showChart {
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button#showChart:hover {
-    background-color: #e68900;
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加陰影 */
 }
 
 form {
@@ -138,48 +125,118 @@ form button:hover {
     background-color: #e68900;
 }
 
-/* 團隊成員頁面樣式 */
-.team-member {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #444;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
+footer {
+    /*background: #4CAF50; /* 綠色背景 */
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 1.5rem;
 }
 
-.team-member img {
-    border-radius: 50%;
+.team-member, .tech-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0; /* 淺灰色背景 */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加陰影 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加過渡效果 */
+}
+
+.team-member:hover, .tech-item:hover {
+    transform: scale(1.02); /* 當鼠標懸停時放大 */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 當鼠標懸停時陰影加深 */
+}
+
+.team-member img, .tech-item img {
+    border-radius: 8px;
     margin-right: 15px;
     width: 100px;
     height: 100px;
     object-fit: cover;
+    border: 2px solid #4CAF50; /* 綠色邊框 */
 }
 
-.team-info {
+.tech-info {
     display: flex;
     flex-direction: column;
 }
 
-.team-member h4 {
+.tech-item h4 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: #4CAF50; /* 綠色文字 */
 }
 
-.team-member p {
+.tech-item p {
     margin: 5px 0 0 0;
+    color: #555; /* 中灰色文字 */
+}
+
+.details {
+    overflow: hidden; /* 隱藏超出部分 */
+    height: 0; /* 初始高度為0 */
+    opacity: 0; /* 初始透明度為0 */
+    transition: height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* 添加高度、透明度和內邊距的過渡效果 */
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 0 15px; /* 初始padding設為0以隱藏 */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 添加陰影 */
+}
+
+.details p {
+    margin: 0;
+    color: #333; /* 深灰色文字 */
+}
+
+.details.show {
+    height: auto; /* 設置顯示時的高度為自動 */
+    opacity: 1; /* 設置透明度為1 */
+    padding: 15px; /* 恢復padding */
+}
+
+.details-btn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* 綠色背景 */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 添加過渡效果 */
+}
+
+.details-btn:hover {
+    background-color: #45A049; /* 鼠標懸停時背景變深 */
 }
 
 /* 修改文章分類顏色 */
 .widget ul li a {
-    color: #1e90ff; /* 深藍色 */
+    color: #4CAF50; /* 綠色文字 */
     text-decoration: none;
+    padding: 0.5rem 0;
+    display: block;
 }
 
 .widget ul li a:hover {
-    color: #ff4500; /* 當鼠標懸停時變為橙紅色 */
+    color: #388E3C; /* 當鼠標懸停時變為深綠色 */
 }
 
+/* 美化標題 */
+#title1 h3{
+    font-size: 2.5rem; /* 增加字體大小 */
+    font-weight: bold; /* 加粗字體 */
+    color: #333; /* 深灰色文字 */
+    text-align: center; /* 置中對齊 */
+    margin-bottom: 1rem; /* 增加底部邊距 */
+    text-transform: uppercase; /* 轉為大寫字母 */
+    letter-spacing: 2px; /* 增加字母間距 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* 添加文字陰影 */
+    border-bottom: 2px solid #4CAF50; /* 底部加綠色邊框 */
+    padding-bottom: 10px; /* 增加底部填充 */
+}
 
 /* 響應式設計 */
 @media (max-width: 768px) {
@@ -191,48 +248,60 @@ form button:hover {
         margin-left: 0;
     }
 
-    .team-member {
+    .team-member, .tech-item {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .team-member img {
+    .team-member img, .tech-item img {
         margin-right: 0;
         margin-bottom: 10px;
     }
 
-    .team-info {
+    .team-info, .tech-info {
         align-items: center;
         text-align: center;
+    }
+
+    #technologies h3 {
+        font-size: 2rem; /* 調整小螢幕上的字體大小 */
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     /* 針對平板電腦大小進行調整 */
-    .team-member {
+    .team-member, .tech-item {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    .team-member img {
+    .team-member img, .tech-item img {
         margin-right: 0;
         margin-bottom: 10px;
     }
-    .team-info {
+    .team-info, .tech-info {
         align-items: center;
         text-align: center;
+    }
+
+    #technologies h3 {
+        font-size: 2.2rem; /* 調整平板上的字體大小 */
     }
 }
 
 @media (min-width: 1025px) {
     /* 針對桌面大小進行調整 */
-    .team-member {
+    .team-member, .tech-item {
         flex-direction: row;
         align-items: center;
         text-align: left;
     }
-    .team-info {
+    .team-info, .tech-info {
         align-items: flex-start;
         text-align: left;
+    }
+
+    #technologies h3 {
+        font-size: 2.5rem; /* 恢復桌面上的字體大小 */
     }
 }

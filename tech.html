@@ -23,15 +23,43 @@
     <div class="container">
         <main>
             <article>
-                <section id="tech">
-                    <h3>技術發展</h3>
-                    <p>隨著科技的迅速發展，移動運算技術也取得了顯著的進步。以下是一些主要的技術發展：</p>
-                    <ul>
-                        <li><strong>5G技術：</strong> 5G網絡在速度和連接能力方面大幅度提升，為移動應用帶來了新的可能性。</li>
-                        <li><strong>人工智慧：</strong> AI技術在手機和平板電腦中的應用越來越廣泛，從語音助手到圖像識別，無處不在。</li>
-                        <li><strong>物聯網（IoT）：</strong> 物聯網設備的普及，使得智慧家居和智慧城市成為現實。</li>
-                        <li><strong>虛擬現實（VR）和擴增實境（AR）：</strong> VR和AR技術為用戶提供了全新的互動體驗，應用於遊戲、教育和醫療等領域。</li>
-                    </ul>
+                <section id="technologies">
+                    <div id="title1">
+                        <h3>技術發展</h3>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tech1.jpg" alt="技術1">
+                        <div class="tech-info">
+                            <h4>5G 技術</h4>
+                            <p>5G是第五代移動通信技術，提供更快的網速和更低的延遲。</p>
+                            <button class="details-btn" onClick="toggleDetails('details1')">查看詳情</button>
+                            <div id="details1" class="details">
+                                <p>5G技術的部署預計將顯著提升網絡性能，支持更多的連接設備，並推動自動駕駛、智慧城市等領域的發展。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tech2.jpg" alt="技術2">
+                        <div class="tech-info">
+                            <h4>人工智慧</h4>
+                            <p>人工智慧技術已經滲透到各個行業，改變了我們的生活方式。</p>
+                            <button class="details-btn" onClick="toggleDetails('details2')">查看詳情</button>
+                            <div id="details2" class="details">
+                                <p>人工智慧在語音識別、圖像識別、自動駕駛等領域有著廣泛應用，極大地提高了生產力和生活質量。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/tech3.jpg" alt="技術3">
+                        <div class="tech-info">
+                            <h4>物聯網</h4>
+                            <p>物聯網技術將各種設備通過網絡連接起來，實現數據互聯和智能控制。</p>
+                            <button class="details-btn" onClick="toggleDetails('details3')">查看詳情</button>
+                            <div id="details3" class="details">
+                                <p>物聯網技術在智慧家庭、智慧城市、工業自動化等領域有著廣泛應用，改變了我們的生活和工作方式。</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </article>
         </main>
@@ -58,5 +86,21 @@
     <footer>
         <p>&copy; 2024 rxteam. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.classList.contains('show')) {
+                detailsElement.classList.remove('show');
+            } else {
+                const autoHeight = detailsElement.scrollHeight + "px";
+                detailsElement.style.height = autoHeight;
+                detailsElement.classList.add('show');
+                setTimeout(() => {
+                    detailsElement.style.height = "";
+                }, 500); // 與CSS中的動畫時間一致
+            }
+        }
+    </script>
 </body>
 </html>

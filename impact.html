@@ -24,14 +24,49 @@
         <main>
             <article>
                 <section id="impact">
-                    <h3>社會影響</h3>
-                    <p>移動裝置對我們生活的影響顯著，主要表現在以下幾個方面：</p>
-                    <ul>
-                        <li><strong>通訊方式的革命：</strong> 即時通訊應用（如微信、WhatsApp）讓人們隨時隨地保持聯繫。</li>
-                        <li><strong>信息獲取的便捷：</strong> 移動網絡讓人們可以隨時隨地獲取新聞和資訊。</li>
-                        <li><strong>電子商務的興起：</strong> 手機購物應用（如淘寶、Amazon）改變了人們的購物習慣。</li>
-                        <li><strong>移動支付的普及：</strong> 支付寶、微信支付等移動支付手段大幅提升了交易的便捷性。</li>
-                    </ul>
+                    <div id="title1">
+                        <h3>社會影響</h3>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-info">
+                            <h4>通訊方式的革命</h4>
+                            <p>即時通訊應用（如微信、WhatsApp）讓人們隨時隨地保持聯繫。</p>
+                            <button class="details-btn" onClick="toggleDetails('details1')">查看詳情</button>
+                            <div id="details1" class="details">
+                                <p>即時通訊應用的興起，讓我們的通訊方式發生了巨大的變化。無論身處何地，只需一部手機和網絡連接，我們就能通過文字、語音和視頻進行實時溝通。這不僅縮短了距離，也拉近了人與人之間的關係。即時通訊應用還提供了群組聊天功能，方便了團隊協作和家庭聯繫。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-info">
+                            <h4>信息獲取的便捷</h4>
+                            <p>移動網絡讓人們可以隨時隨地獲取新聞和資訊。</p>
+                            <button class="details-btn" onClick="toggleDetails('details2')">查看詳情</button>
+                            <div id="details2" class="details">
+                                <p>移動網絡的普及，使得我們可以隨時隨地獲取最新的新聞和資訊。無論是國際大事還是社區新聞，一部手機就能幫助我們即時掌握。這種便捷性不僅提高了我們的知識水平，也增強了我們對世界的了解和關注。此外，移動網絡還支持各類應用的使用，如電子書、在線課程等，豐富了我們的學習和娛樂方式。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-info">
+                            <h4>電子商務的興起</h4>
+                            <p>手機購物應用（如淘寶、Amazon）改變了人們的購物習慣。</p>
+                            <button class="details-btn" onClick="toggleDetails('details3')">查看詳情</button>
+                            <div id="details3" class="details">
+                                <p>電子商務的興起，讓我們的購物方式發生了革命性的變化。借助手機購物應用，我們不再需要親自前往商店，只需在手機上點擊幾下，就能完成下單、支付和配送的整個過程。這不僅節省了時間和精力，也提供了更多的選擇和比價機會。此外，電子商務平台還推出了各種促銷活動，吸引消費者購物，帶動了經濟的發展。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-info">
+                            <h4>移動支付的普及</h4>
+                            <p>支付寶、微信支付等移動支付手段大幅提升了交易的便捷性。</p>
+                            <button class="details-btn" onClick="toggleDetails('details4')">查看詳情</button>
+                            <div id="details4" class="details">
+                                <p>移動支付的普及大大提升了交易的便捷性和安全性。通過支付寶、微信支付等移動支付手段，我們不再需要攜帶現金或刷卡，只需使用手機掃描二維碼或點擊支付按鈕，就能完成支付。這不僅簡化了支付流程，還提供了更多的支付方式選擇。此外，移動支付還支持各類在線和離線的消費場景，如網購、餐飲、交通等，覆蓋了我們生活的方方面面。</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </article>
         </main>
@@ -58,5 +93,21 @@
     <footer>
         <p>&copy; 2024 rxteam. All rights reserved.</p>
     </footer>
+
+    <script>
+        function toggleDetails(detailsId) {
+            const detailsElement = document.getElementById(detailsId);
+            if (detailsElement.classList.contains('show')) {
+                detailsElement.classList.remove('show');
+            } else {
+                const autoHeight = detailsElement.scrollHeight + "px";
+                detailsElement.style.height = autoHeight;
+                detailsElement.classList.add('show');
+                setTimeout(() => {
+                    detailsElement.style.height = "";
+                }, 500); // 與CSS中的動畫時間一致
+            }
+        }
+    </script>
 </body>
 </html>
